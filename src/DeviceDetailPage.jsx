@@ -16,6 +16,15 @@ export default function DeviceDetailPage({ devices, aliases = {} }) {
   );
 
 
+//   if (loading) {
+//   return <p>Loading device data...</p>;
+// }
+
+// if (!data || data.length === 0) {
+//   return <p>No device data available.</p>;
+// }
+
+
   if (deviceData.length === 0) {
     return <Typography>No data found for device {deviceId}</Typography>;
   }

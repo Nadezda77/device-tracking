@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
 import DeviceListPage from "./DeviceListPage";
 import DeviceDetailPage from "./DeviceDetailPage";
+import HomePage from "./HomePage";
 
 export default function App() {
   const [devices, setDevices] = useState([]);
@@ -26,7 +27,8 @@ export default function App() {
     <Router>
       <Box sx={{ p: 2 }}>
         <Routes>
-          <Route path="/" element={<DeviceListPage devices={devices}  aliases={aliases} />} />
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/devices" element={<DeviceListPage devices={devices}  aliases={aliases} />} />
           <Route path="/device/:deviceId" element={<DeviceDetailPage devices={devices} aliases={aliases}/>} />
         </Routes>
       </Box>

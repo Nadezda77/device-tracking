@@ -1,0 +1,40 @@
+/* homepage.css */
+.hero-section {
+  background-image: linear-gradient(135deg, rgba(2,6,23,0.8), rgba(10,25,47,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  min-height: 420px;
+}
+
+.hero-pill {
+  background: rgba(255,255,255,0.12);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.95);
+  display: inline-block;
+}
+
+.hero-device {
+  max-width: 420px;
+  transform: translateY(-10px);
+}
+
+.feature-card img {
+  height: 160px;
+  object-fit: cover;
+}
+
+.highlight-image {
+  max-width: 360px;
+  border-radius: 12px;
+}
+
+.stat-card {
+  border: none;
+}
+
+@media (max-width: 767px) {
+  .hero-section { padding: 40px 0; }
+}
