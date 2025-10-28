@@ -25,31 +25,28 @@ function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
   setForm((p) => ({ ...p, [name]: value }));
 }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   setStatus("submitting");
 
+  const form = e.currentTarget;
+  const data = new FormData(form);
+
   try {
-    const payload = new FormData();
-    payload.append("form-name", "contact");
-    payload.append("name", form.name);
-    payload.append("email", form.email);
-    payload.append("message", form.message);
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data as any).toString(),
+    });
 
-    const res = await fetch("/", { method: "POST", body: payload });
-
-    if (res.ok) {
-      setStatus("success");
-      setForm({ name: "", email: "", message: "" });
-      setShowModal(true);
-    } else {
-      throw new Error("Network response not OK");
-    }
-  } catch (err) {
-    console.error("submit error:", err);
+    setStatus("success");
+    form.reset();
+  } catch (error) {
+    console.error("Form submit failed:", error);
     setStatus("error");
   }
-}
+};
+
 
   return (
     <>
@@ -203,32 +200,73 @@ function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
                 <h4>Contact Us</h4>
                 <p className="text-muted">Questions, sales or integration help — contact us.</p>
 
-                <Form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
-                  {/* Netlify hidden field */}
-                  <input type="hidden" name="form-name" value="contact" />
+                <Form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  onSubmit={handleSubmit}
+>
+  {/* Hidden fields for Netlify */}
+  <input type="hidden" name="form-name" value="contact" />
+  <p hidden>
+    <label>
+      Don’t fill this out: <input name="bot-field" />
+    </label>
+  </p>
 
-                  <Form.Group className="mb-3" controlId="formName">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control name="name" value={form.name} onChange={handleChange} required placeholder="Your name" />
-                  </Form.Group>
+  <Form.Group className="mb-3" controlId="formName">
+    <Form.Label>Name</Form.Label>
+    <Form.Control
+      name="name"
+      value={form.name}
+      onChange={handleChange}
+      required
+      placeholder="Your name"
+    />
+  </Form.Group>
 
-                  <Form.Group className="mb-3" controlId="formEmail">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" name="email" value={form.email} onChange={handleChange} required placeholder="you@example.com" />
-                  </Form.Group>
+  <Form.Group className="mb-3" controlId="formEmail">
+    <Form.Label>Email</Form.Label>
+    <Form.Control
+      type="email"
+      name="email"
+      value={form.email}
+      onChange={handleChange}
+      required
+      placeholder="you@example.com"
+    />
+  </Form.Group>
 
-                  <Form.Group className="mb-3" controlId="formMessage">
-                    <Form.Label>Message</Form.Label>
-                    <Form.Control as="textarea" rows={4} name="message" value={form.message} onChange={handleChange} required />
-                  </Form.Group>
+  <Form.Group className="mb-3" controlId="formMessage">
+    <Form.Label>Message</Form.Label>
+    <Form.Control
+      as="textarea"
+      rows={4}
+      name="message"
+      value={form.message}
+      onChange={handleChange}
+      required
+    />
+  </Form.Group>
 
-                  <div className="d-flex gap-2 align-items-center">
-                    <Button type="submit" variant="primary" disabled={status === "submitting"}>
-                      {status === "submitting" ? "Sending…" : "Send Message"}
-                    </Button>
-                    {status === "error" && <div className="text-danger">Failed to send — try again.</div>}
-                  </div>
-                </Form>
+  <div className="d-flex gap-2 align-items-center">
+    <Button
+      type="submit"
+      variant="primary"
+      disabled={status === "submitting"}
+    >
+      {status === "submitting" ? "Sending…" : "Send Message"}
+    </Button>
+    {status === "error" && (
+      <div className="text-danger">Failed to send — try again.</div>
+    )}
+    {status === "success" && (
+      <div className="text-success">✅ Message sent!</div>
+    )}
+  </div>
+</Form>
+
               </Card>
             </Col>
           </Row>
