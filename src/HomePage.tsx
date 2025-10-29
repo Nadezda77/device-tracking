@@ -25,27 +25,35 @@ function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElemen
   setForm((p) => ({ ...p, [name]: value }));
 }
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
   setStatus("submitting");
 
-  const form = e.currentTarget;
-  const data = new FormData(form);
-
   try {
-    await fetch("/", {
+    // prepare payload
+    const formData = new FormData(e.currentTarget);
+
+    const res = await fetch("/.netlify/functions/submit-contact", {
       method: "POST",
+      body: new URLSearchParams(formData as any).toString(),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data as any).toString(),
     });
 
-    setStatus("success");
-    form.reset();
-  } catch (error) {
-    console.error("Form submit failed:", error);
+    if (res.ok) {
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+      setShowModal(true);
+    } else {
+      throw new Error("Network response not OK");
+    }
+  } catch (err) {
+    console.error("submit error:", err);
     setStatus("error");
   }
-};
+}
+
+
+
 
 
   return (
@@ -204,16 +212,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   name="contact"
   method="POST"
   data-netlify="true"
-  netlify-honeypot="bot-field"
+  action="/.netlify/functions/submit-contact"
   onSubmit={handleSubmit}
 >
-  {/* Hidden fields for Netlify */}
+  {/* Netlify hidden field */}
   <input type="hidden" name="form-name" value="contact" />
-  <p hidden>
-    <label>
-      Don’t fill this out: <input name="bot-field" />
-    </label>
-  </p>
 
   <Form.Group className="mb-3" controlId="formName">
     <Form.Label>Name</Form.Label>
@@ -251,21 +254,16 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   </Form.Group>
 
   <div className="d-flex gap-2 align-items-center">
-    <Button
-      type="submit"
-      variant="primary"
-      disabled={status === "submitting"}
-    >
+    <Button type="submit" variant="primary" disabled={status === "submitting"}>
       {status === "submitting" ? "Sending…" : "Send Message"}
     </Button>
     {status === "error" && (
       <div className="text-danger">Failed to send — try again.</div>
     )}
-    {status === "success" && (
-      <div className="text-success">✅ Message sent!</div>
-    )}
   </div>
 </Form>
+
+
 
               </Card>
             </Col>
