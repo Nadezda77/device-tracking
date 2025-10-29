@@ -1,4 +1,15 @@
+[functions]
+  directory = "netlify/functions"
+
+[[plugins]]
+  package = "@netlify/plugin-functions-core"
+
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+
+
+
