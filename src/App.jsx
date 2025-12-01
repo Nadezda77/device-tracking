@@ -10,6 +10,7 @@ export default function App() {
   const aliases = {
     "2CF7F1C0541000CC": "Tracker Car_01",
     "2CF7F1C070300100": "Tracker Car_02",
+    "2Cf7f1C07310029C": "Tracker Car_03",
   };
 
 
