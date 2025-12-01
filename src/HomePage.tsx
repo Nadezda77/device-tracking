@@ -262,13 +262,10 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     )}
   </div>
 </Form>
-
-
-
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+</Card>
+</Col>
+</Row>
+ </Container>
       </section>
 
       <footer className="py-4 text-center text-muted">
