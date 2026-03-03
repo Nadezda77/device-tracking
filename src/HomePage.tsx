@@ -267,7 +267,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       </section>
 
       <footer className="py-4 text-center text-muted">
-        © {new Date().getFullYear()} IoT Dashboard · Built for tracking
+        © {new Date().getFullYear()} IoT Dashboard · Praćenje
       </footer>
 
       {/* Success Modal */}

@@ -15,12 +15,12 @@ export default function DeviceTable({ devices = [], onRowClick, aliases = {} }) 
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Device</TableCell>
-            <TableCell>Timestamp</TableCell>
+            <TableCell>Naziv</TableCell>
+            <TableCell>Vreme</TableCell>
             <TableCell>Latitude</TableCell>
             <TableCell>Longitude</TableCell>
-            <TableCell>Temperature (°C)</TableCell>
-            <TableCell>Battery (%)</TableCell>
+            <TableCell>Temperatura (°C)</TableCell>
+            <TableCell>Baterija (%)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
