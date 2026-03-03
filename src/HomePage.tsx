@@ -60,26 +60,27 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         <Container>
           <Row className="align-items-center">
             <Col md={6} className="hero-left">
-              <h1 className="display-4 fw-bold">Tracking Device Dashboard</h1>
+              <h1 className="display-4 fw-bold">Usluga praćenja - iznajmljivanje GPS uređaja</h1>
               <p className="lead mb-4">
-                Real-time tracking, seven days of history and a clean web dashboard — no mobile app required.
-                Monitor fleet, assets or personal trackers instantly.
+                Praćenje lokacije uređaja u realnom vremenu u prethodnih 7 dana preko web pregleda — nije potrebna mobilna aplikacija.
+                Pratite vozila, motore, čamce, bicikle, predmete ili osobe jednostavnim klikom, bez ugradnje uređaja, koji su veličine platne kartice i mase 30 grama sa integrisanom baterijom, koja traje do nekoliko meseci bez dopunjavanja. 
+                Pregled nivoa baterije uređaja i temperature okruženja. 
               </p>
 
               <div className="d-flex gap-2">
                 <Button variant="light" size="lg" onClick={() => navigate("/devices")}>
-                  View Devices
+                  Pregled uređaja 
                 </Button>
                 <Button variant="outline-light" size="lg" onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })
 }>
-                  Contact Sales
+                  Kontaktirajte prodaju
                 </Button>
               </div>
 
               <div className="mt-4 d-flex flex-wrap gap-3">
-                <div className="hero-pill">Live map</div>
-                <div className="hero-pill">7-day history</div>
-                <div className="hero-pill">Battery & temp</div>
+                <div className="hero-pill">pregled na mapi</div>
+                <div className="hero-pill">lokacije prethodnih 7 dana</div>
+                <div className="hero-pill">baterija & temperatura</div>
               </div>
             </Col>
 
@@ -106,8 +107,8 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
               <Card className="h-100 feature-card">
                 <Card.Img variant="top" src={fastCar} />
                 <Card.Body>
-                  <Card.Title>Fast Location Updates</Card.Title>
-                  <Card.Text>Near real-time updates on device location with smooth map playback for history.</Card.Text>
+                  <Card.Title>Triger na pokret uređaja</Card.Title>
+                  <Card.Text>Podesivi intervali slanja koordinata uređaja sa pregledom istorije kretanja u tabeli.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -116,8 +117,8 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
               <Card className="h-100 feature-card">
                 <Card.Img variant="top" src={itsSimple} />
                 <Card.Body>
-                  <Card.Title>Simple Management</Card.Title>
-                  <Card.Text>Single dashboard to manage devices, view battery and temperature, and export history.</Card.Text>
+                  <Card.Title>Jednostavno korišćene - bez dodatnog prijavljivanja i podešavanja</Card.Title>
+                  <Card.Text>Intuitivan prikaz lokacije na mapi i u tabeli sa podacima o vremenu zapisa, temperaturi i naponu baterije.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -126,8 +127,8 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
               <Card className="h-100 feature-card">
                 <Card.Img variant="top" src={itsReliable} />
                 <Card.Body>
-                  <Card.Title>Secure & Scalable</Card.Title>
-                  <Card.Text>AWS-backed infrastructure and best-practice policies for data protection and scale.</Card.Text>
+                  <Card.Title>Minimalni period za korišćenje - 1 mesec</Card.Title>
+                  <Card.Text>Pokrivanje na široj teritoriji Beograda, kao i u većim gradovima. Logovanje GPS lokacijskih zapisa u slučaju nedostatka pokrivanja i isporuka podataka kada se uređaj vrati u zonu pokrivanaja.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -140,14 +141,14 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         <Container>
           <Row className="align-items-center">
             <Col md={6}>
-              <h3>Beautiful map playback & route visualization</h3>
+              <h3>Jednostavan vizuelni prikaz</h3>
               <p className="text-muted">
-                Visualize device movement with an Apple-AirTag style timeline. Download CSV of device path or share a link to a device view.
+                Praćenje promene lokacije u stilu Airtag. Za svaki pojedinačni uređaj poseban link za praćenje i pregled. 
               </p>
               <ul className="text-muted">
-                <li>Polyline path + markers for each recorded ping</li>
-                <li>Click timeline to jump to a moment</li>
-                <li>Export or share device snapshot</li>
+                <li>Marker na mapi za svaku zabeleženu GPS lokaciju</li>
+                <li>Klikom na željeno vreme u tabeli se dobija pozicija na mapi u datom trenutku</li>
+          
               </ul>
             </Col>
 
@@ -179,16 +180,16 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
             <Col md={4}>
               <Card className="text-center stat-card h-100">
                 <Card.Body>
-                  <h2 className="display-6">7 days</h2>
-                  <p className="text-muted">History window</p>
+                  <h2 className="display-6">7 dana</h2>
+                  <p className="text-muted">istorije</p>
                 </Card.Body>
               </Card>
             </Col>
             <Col md={4}>
               <Card className="text-center stat-card h-100">
                 <Card.Body>
-                  <h2 className="display-6">Global</h2>
-                  <p className="text-muted">Works in most countries with LoRaWAN coverage</p>
+                  <h2 className="display-6">GPS pozicioniranje</h2>
+                  <p className="text-muted">Mobilni punjač</p>
                 </Card.Body>
               </Card>
             </Col>
@@ -203,7 +204,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
             <Col md={8}>
               <Card className="p-4">
                 <h4>Contact Us</h4>
-                <p className="text-muted">Questions, sales or integration help — contact us.</p>
+                <p className="text-muted">Kontaktirajte nas za sve dodatne informacije u vezi sa uslovima korišćenje</p>
 
                 <Form
   name="contact"
@@ -239,7 +240,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formMessage">
-    <Form.Label>Message</Form.Label>
+    <Form.Label>Poruka</Form.Label>
     <Form.Control
       as="textarea"
       rows={4}
