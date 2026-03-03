@@ -188,7 +188,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
             <Col md={4}>
               <Card className="text-center stat-card h-100">
                 <Card.Body>
-                  <h2 className="display-6">GPS pozicioniranje</h2>
+                  <h2 className="display-6">GPS pozicioniranje na detekciju pokreta</h2>
                   <p className="text-muted">Mobilni punjač</p>
                 </Card.Body>
               </Card>
@@ -217,7 +217,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   <input type="hidden" name="form-name" value="contact" />
 
   <Form.Group className="mb-3" controlId="formName">
-    <Form.Label>Name</Form.Label>
+    <Form.Label>Ime</Form.Label>
     <Form.Control
       name="name"
       value={form.name}
