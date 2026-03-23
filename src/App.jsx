@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import DeviceListPage from "./DeviceListPage";
 import DeviceDetailPage from "./DeviceDetailPage";
 import HomePage from "./HomePage";
+import ChatWidget from "./components/ChatWidget";
 
 export default function App() {
   const [devices, setDevices] = useState([]);
@@ -33,6 +34,8 @@ export default function App() {
           <Route path="/device/:deviceId" element={<DeviceDetailPage devices={devices} aliases={aliases}/>} />
         </Routes>
       </Box>
+      <ChatWidget />
     </Router>
+    
   );
 }
