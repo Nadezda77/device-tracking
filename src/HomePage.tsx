@@ -129,7 +129,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
                 <Card.Img variant="top" src={itsReliable} />
                 <Card.Body>
                   <Card.Title>Minimalni period za korišćenje - 1 mesec</Card.Title>
-                  <Card.Text>Pokrivanje na široj teritoriji Beograda, kao i u većim gradovima. Logovanje GPS lokacijskih zapisa u slučaju nedostatka pokrivanja i isporuka podataka kada se uređaj vrati u zonu pokrivanaja.</Card.Text>
+                  <Card.Text>Pokrivanje na široj teritoriji Beograda, kao i u većim gradovima Evrope. Logovanje GPS lokacijskih zapisa u slučaju nedostatka pokrivanja i isporuka podataka kada se uređaj vrati u zonu pokrivanaja.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -149,7 +149,12 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
               <ul className="text-muted">
                 <li>Marker na mapi za svaku zabeleženu GPS lokaciju</li>
                 <li>Klikom na željeno vreme u tabeli se dobija pozicija na mapi u datom trenutku</li>
-          
+                <li>IP Rating	IP65</li>
+                <li>Dimenzije	85 x 55 x 6.5 mm</li>
+                <li>Masa uređaja	32g</li>
+                <li>Temperatura	-20℃ to +60℃</li>
+                <li>Vlažnost 5% - 95% (bez kondenzacije)</li>
+                <li>Sertifikati	CE /FCC /TELEC /RoHS /REACH</li>
               </ul>
             </Col>
 
