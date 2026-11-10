@@ -60,11 +60,12 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         <Container>
           <Row className="align-items-center">
             <Col md={6} className="hero-left">
-              <h1 className="display-4 fw-bold">Usluga praćenja - iznajmljivanje GPS uređaja</h1>
+              <h1 className="display-4 fw-bold">Usluga praćenja lokacije  temperature - iznajmljivanje GPS uređaja</h1>
               <p className="lead mb-4">
-                Praćenje lokacije uređaja u realnom vremenu u prethodnih 7 dana preko web pregleda — nije potrebna mobilna aplikacija.
-                Pratite vozila, motore, čamce, bicikle, predmete ili osobe jednostavnim klikom, bez ugradnje uređaja, koji su veličine platne kartice i mase 30 grama sa integrisanom baterijom, koja traje do nekoliko meseci bez dopunjavanja. 
-                Pregled nivoa baterije uređaja i temperature okruženja. 
+                Praćenje lokacije i temperature uređaja u realnom vremenu u prethodnih 7 dana preko web pregleda — nije potrebna mobilna aplikacija.
+                Pratite vozila, hladnjače, motore, čamce, bicikle, predmete ili osobe jednostavnim klikom, bez ugradnje uređaja, koji su veličine platne kartice i mase 30 grama sa integrisanom baterijom, koja traje do nekoliko meseci bez dopunjavanja. 
+                Pregled nivoa baterije uređaja i temperature okruženja. Logovanje preko 1000 zapisa. Mogućnost adaptacije rešenja prema potrebama korisnika. Mogućnost integracije podataka sa internim sistemima korisnika. 
+                Konekcija uređaja na internet je obezbeđena. 
               </p>
 
               <div className="d-flex gap-2">
